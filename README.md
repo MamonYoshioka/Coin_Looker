@@ -1,9 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サイト名：　con_looker(コインロッカー)
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+コインロッカーをWeb上で簡単に探せるアプリ
+- 分類
+  - コミュニティーサイト
 
 * Ruby version
 
