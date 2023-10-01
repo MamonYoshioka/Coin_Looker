@@ -8,20 +8,23 @@
 - 分類
   - コミュニティーサイト
 
-* Ruby version
+### テーマを選んだ理由
+- コインロッカーの場所はわかりづらく、重たい荷物を持ったまま探すのが大変だと思うことがよくあるため
+- 場所によって(店内のコインロッカー)などは営業時間外は取り出せなくなってしまったという話を聞いたことがあり
 
-* System dependencies
+### ターゲットユーザー
+学生〜６０代くらいまで
 
-* Configuration
+### 主な利用シーン
+- 旅行・主張先(慣れてない場所での検索)
+## 設計書
 
-* Database creation
+## 開発環境
+- MacOS
+- 言語:　HTML, CSS, Javascript, Ruby, SQL
+- JSライブラリ: jQuery
+- IDE: Could9
 
-* Database initialization
+## 使用素材
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
