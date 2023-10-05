@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ header {
+   background-color: rgb(69,69,114);
+ }
+
+ header ul li strong{
+   color: #fff;
+ }
+
+ header ul li strong:hover {
+   color: #fff8cf;
+ }
+
