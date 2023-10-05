@@ -1,19 +1,32 @@
-<% if end_user_signed_in? %>
-  <li>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to new_end_user_registration_path do %>
-      <i class="fa-solid fa-user-plus"></i> 新規登録
+<nav class='navbar navbar-expand-lg navbar-light'>
+  <div class='container'>
+    <%= link_to root_path, class:'navbar-brand p-3' do %>
+      <%= image_tag 'coin_looker_logo_ver2.jpg', style: "object-fit: cover; width: 150px; height: 90px;" %>
     <% end %>
-  </li>
-  <li>
-    <%= link_to new_end_user_session_path do %>
-      <i class="fa-solid fa-right-to-bracket"></i> ログイン
-    <% end %>
-  </li>
-  <li>
-    <%= link_to "CoinLookerとは", about_path %>
-  </li>
-<% end %>
+    <div class='collapse navbar-collapse'>
+      <ul class='navbar-nav ml-auto'>
+        <% if end_user_signed_in? %>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+          </li>
+        <% else %>
+          <li class='nav-item'>
+            <%= link_to about_path, class: 'nav-link text-white' do %>
+              <strong>Coin_Lookerとは</strong>   |
+            <% end %>
+          </li>
+          <li class='nav-item'>
+            <%= link_to new_end_user_registration_path, class: 'nav-link text-white' do %>
+              <strong><i class="fa-solid fa-user-plus" style="color: #fff;"></i> 新規登録</strong>   |
+            <% end %>
+          </li>
+          <li class='nav-item'>
+            <%= link_to new_end_user_session_path, class: 'nav-link text-dark' do %>
+              <strong><i class="fa-solid fa-right-to-bracket" style="color: #fff;"></i> ログイン</strong>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
