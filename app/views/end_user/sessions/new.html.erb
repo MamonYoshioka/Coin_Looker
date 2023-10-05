@@ -1,12 +1,8 @@
-<h2>Log in</h2>
+<div>
+  <h2>ログイン</h2>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-  <div class="field">
-    <%= f.label :名前（姓） %><br>
-    <%= f.text_field :family_name, autofocus: true %>
-  </div>
-
+<%= form_with model: @end_user, url: end_user_registration_path do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />

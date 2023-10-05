@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
   devise_for :end_users, controllers: {
-    registrations: 'end_user/registrations'
-    #sessions: 'end_user/sessions'
+    registrations: 'end_user/registrations',
+    sessions: 'end_user/sessions'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'end_user/homes#top'
