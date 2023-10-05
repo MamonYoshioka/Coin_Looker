@@ -1,0 +1,16 @@
+<% if end_user_signed_in? %>
+  <li>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to new_end_user_registration_path do %>
+      <i class="fa-solid fa-user-plus"></i> 新規登録
+    <% end %>
+  </li>
+  <li>
+    <%= link_to new_end_user_session_path do %>
+      <i class="fa-solid fa-right-to-bracket"></i> ログイン
+    <% end %>
+  </li>
+<% end %>
