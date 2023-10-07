@@ -7,11 +7,13 @@
       <ul class='navbar-nav ml-auto'>
         <% if end_user_signed_in? %>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: 'nav-link text-white' %>
           </li>
 
           <li>
-            <%= link_to "投稿一覧" %>
+            <%= link_to root_path, class: 'nav-link text-white' do %>
+              投稿一覧
+            <% end %>
           </li>
         <% else %>
           <li class='nav-item'>
