@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'
     get 'members/edit'  =>  "members#edit", as: 'member_edit'
-    patch 'members/information' => "members#update", as: 'member_update'
+    patch 'members/mypage' => "members#update", as: 'member_update'
     get 'members/check' => "members#check", as: 'member_check'
     #patch 'members/is_withdraw'
   end
