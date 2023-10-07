@@ -13,7 +13,7 @@ class EndUser::MembersController < ApplicationController
     @member = current_end_user
     if @member.update(mypage_params)
       flash[:notice] = "会員情報変更しました。"
-      redirect_to end_user_member_mypage_path
+      redirect_to end_user_member_path
     else
       flash[:notice] = "変更内容が正しくありません。"
       redirect_to end_user_member_edit_path
@@ -22,6 +22,6 @@ class EndUser::MembersController < ApplicationController
 
   private
     def mypage_params
-      params.require(:member).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :email,:nick_name)
+      params.require(:end_user).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :email,:nick_name)
     end
 end
