@@ -1,0 +1,39 @@
+<div class=container>
+  <div class="row mt-3">
+    <div class="col-8 mt-5 mb-5 ml-5">
+      <h2>マイページ</h2>
+    </div>
+
+    <div class="col-10 d-flex">
+      <h4><b>登録情報</b></h4>
+      <p class="ml-5 pl-5">
+        <%= link_to "編集する", end_user_member_edit_path, class: "btn btn-success", style: "width: 150px" %>
+      </p>
+    </div>
+
+    <div class="col-10 offset-1">
+      <table class="table table-bordered bordered-dark">
+            <tbody>
+              <tr>
+                <td>氏名</td>
+                <td><%= @member.family_name %>&nbsp;<%= @member.first_name %></td>
+              </tr>
+
+              <tr>
+                <td>カナ</td>
+                <td><%= @member.family_name_kana%>&nbsp;<%= @member.first_name_kana %></td>
+              </tr>
+
+              <tr>
+                <td>ニックネーム</td>
+                <td><%= @member.nick_name %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= @member.email %></td>
+              </tr>
+            </tbody>
+      </table>
+    </div>
+  </div>
+</div>
