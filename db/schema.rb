@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_04_150029) do
+ActiveRecord::Schema.define(version: 2023_10_07_052123) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2023_10_04_150029) do
     t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.string "area_name"
+    t.text "area_introduction"
+    t.text "cost"
+    t.string "number_of_loker"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
