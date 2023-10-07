@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 mt-5 mb-5">
+      <h2>会員情報編集</h2>
+    </div>
+
+    <div class="col-8 mx-auto">
+      <%= form_with model: @member, url: end_user_member_path do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>名前</td>
+              <td><%= f.text_field :family_name, placeholder: "横浜",autofocus: true %></td>
+              <td><%= f.text_field :first_name, placeholder: "太郎" %></td>
+            </tr>
+
+            <tr>
+              <td>フリガナ</td>
+              <td><%= f.text_field :family_name_kana, placeholder: "ヨコハマ",autofocus: true %></td>
+              <td><%= f.text_field :first_name_kana, placeholder: "タロウ",autofocus: true %></td>
+            </tr>
+
+            <tr>
+              <td>ニックネーム</td>
+              <td><%= f.text_field :nick_name, placeholder: "横浜",autofocus: true %></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+              <td><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <div class="mx-auto mt-3 mb-2 text-right">
+                  <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <%#= link_to "退会する", public_customer_confirm_path, class: "btn btn-danger" %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
