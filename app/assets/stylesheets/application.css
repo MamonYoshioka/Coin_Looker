@@ -26,3 +26,40 @@
    color: #ffe556;
  }
 
+ .about-title {
+  position: relative;
+ }
+
+ .about-title p {
+   position: absolute;
+   top: 60%;
+   left: 5%;
+   color: rgb(69,69,114);
+   font-size: 30px;
+   font-weight: bold;
+   text-shadow: 3px 4px 3px #ffe556;
+ }
+ .about-text {
+   font-size: 18px;
+   letter-spacing: 0.25rem;
+   line-height: 30px;
+ }
+
+ .target {
+    background-color: rgb(69,69,114);
+    color: #fff;
+ }
+
+  .target h3 {
+   padding-top: 10px;
+ }
+
+ .target-info {
+    display: flex;
+ }
+
+ .loker-image img {
+    list-style: none;
+    border-radius: 20px;
+ }
+
