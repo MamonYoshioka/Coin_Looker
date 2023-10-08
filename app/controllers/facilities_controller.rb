@@ -1,6 +1,7 @@
 class FacilitiesController < ApplicationController
   # ロッカー情報の一覧
   def index
+    @facilities = Facility.all
   end
 
   # 情報詳細
