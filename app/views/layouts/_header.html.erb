@@ -6,19 +6,27 @@
     <div class='collapse navbar-collapse'>
       <ul class='navbar-nav ml-auto'>
         <% if end_user_signed_in? %>
-          <li>
-            <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: 'nav-link text-white' %>
-          </li>
-
-          <li>
-            <%= link_to end_user_member_path, class: 'nav-link text-white' do %>
-              マイページ
+          <li class='nav-item'>
+            <%= link_to about_path, class: 'nav-link text-white' do %>
+              <strong>Coin_Lookerとは</strong>   |
             <% end %>
           </li>
 
           <li>
-            <%= link_to root_path, class: 'nav-link text-white' do %>
-              投稿一覧
+            <%= link_to end_user_member_path, class: 'nav-link text-white' do %>
+              <strong>マイページ</strong>   |
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to facilities_path, class: 'nav-link text-white' do %>
+              <strong>投稿一覧</strong>   |
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to  destroy_end_user_session_path, method: :delete, class: 'nav-link text-white' do %>
+              <strong><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>ログアウト</strong>
             <% end %>
           </li>
         <% else %>
