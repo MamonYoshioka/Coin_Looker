@@ -1,5 +1,28 @@
-<h2>投稿一覧ページ</h2>
-
-<div class="m-3">
-  <%= link_to '情報を登録', new_facility_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>投稿一覧ページ</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="m-3">
+        <%= link_to '情報を登録', new_facility_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @facilities.each do |facility| %>
+      <div class="col-sm-12 mb-3">
+        <%= link_to facility_path(facility) do %>
+          <div class="card mx-auto" style="max-width: 480px">
+            <div class="card-body">
+              <h5 class="card-title"><%= facility.loker_name %></h5>
+              <p class="card-text"><%= facility.area_introduction %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
