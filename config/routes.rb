@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 # 施設の情報を新規投稿するためのモデル
-  # get 'facilities/index'
-  # get 'facilities/show'
-  # get 'facilities/new'
-  # get 'facilities/create'
-  # get 'facilities/edit'
-  # get 'facilities/update'
-  # get 'facilities/destroy'
+  resources :facilities
 
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'

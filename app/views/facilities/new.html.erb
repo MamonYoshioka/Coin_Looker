@@ -1,2 +1,28 @@
-<h1>Facilities#new</h1>
-<p>Find me in app/views/facilities/new.html.erb</p>
+<div>
+  <h2>新規投稿</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <%# if singed_in? %>
+      <%= form_with model: @facility  do |f| %>
+        <div class="form-group">
+          <%= f.label 'ロッカー名'%>
+          <%= f.text_field :loker_name, class: 'form-control' %>
+
+          <%= f.label 'エリア名'%>
+          <%= f.text_field :area_name, class: 'form-control' %>
+
+          <%= f.label 'エリア紹介'%>
+          <%= f.text_area :area_introduction, class: 'form-control', row: 2 %>
+
+          <%= f.label '費用目安'%>
+          <%= f.text_field :cost, class: 'form-control' %>
+
+          <%#= f.label 'ロッカー数'%>
+          <%#= f.text_field :, class:number_of_loker 'form-control' %>
+        </div>
+        <%= f.submit '登録', class: 'btn btn-outline-success btn-block mb-3' %>
+      <% end %>
+    <%# end %>
+  </div>
+</div>
