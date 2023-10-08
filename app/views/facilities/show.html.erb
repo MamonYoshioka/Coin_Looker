@@ -8,21 +8,51 @@
       <h2>投稿詳細</h2>
     </div>
     <div>
-      <%= link_to '情報を更新', class:"btn btn-primary" %>
-      <%= link_to '情報を削除', class:"btn btn-danger"  %>
+      <%= link_to '情報を更新', edit_facility_path, class:"btn btn-info" %>
+      <%= link_to '情報を削除', facility_path, class:"btn btn-danger"  %>
     </div>
-    <div class="col-7 mt-3">
-      <span>ロッカー名</span>  |
-      <%=@facility.loker_name %><br>
+    <div class="col-7 mb-5">
+      <div class="card">
+        <div class="card-header">
+          <%=@facility.loker_name %>
+        </div>
 
-      <span>エリア名</span>  |
-      <%=@facility.area_name %><br>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#outline" type="button" role="tab" aria-controls="home" aria-selected="true">概要</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#area" type="button" role="tab" aria-controls="profile" aria-selected="false">エリア名</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-toggle="tab" data-target="#estimated_cost" type="button" role="tab" aria-controls="contact" aria-selected="false">費用</button>
+          </li>
+        </ul>
 
-      <span>エリア紹介</span>  |
-      <%=@facility.area_introduction %><br>
-
-      <span>費用目安</span>  |
-      <%=@facility.cost %><br>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="outline" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card-body">
+              <h5 class="card-title">概要</h5>
+              <p class=card-text><%=@facility.area_introduction %></p>
+              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+            </div>
+          </div>
+          <div class="tab-pane fade" id="area" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card-body">
+              <h5 class="card-title">エリア</h5>
+              <p class=card-text><%=@facility.area_name %></p>
+              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+            </div>
+          </div>
+          <div class="tab-pane fade" id="estimated_cost" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="card-body">
+              <h5 class="card-title">費用目安</h5>
+              <p class=card-text><%=@facility.cost %></p>
+              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
