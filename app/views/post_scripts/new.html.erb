@@ -1,0 +1,19 @@
+<div>
+  <h2>追記投稿</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% if signed_in? %>
+      <%= form_with model: @post_script  do |f| %>
+        <div class="form-group">
+          <%= f.label '追記情報'%>
+          <%= f.text_field :title, class: 'form-control' %>
+
+          <%= f.label '追記情報内容'%>
+          <%= f.text_area :content, class: 'form-control', row: 5 %>
+        </div>
+        <%= f.submit '登録', class: 'btn btn-outline-success btn-block mb-3' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
