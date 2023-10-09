@@ -7,6 +7,8 @@ class FacilitiesController < ApplicationController
   # 情報詳細
   def show
     @facility = Facility.find(params[:id])
+    # ロッカー情報追記の一覧
+    @post_scripts = PostScript.all
   end
 
   # 新規作成
@@ -27,14 +29,25 @@ class FacilitiesController < ApplicationController
 
   # 登録編集
   def edit
+     @book = Facility.find(params[:id])
   end
 
   # 登録内容更新
   def update
+    @facility = Facility.find(params[:id])
+    if @book.update(facility_params)
+      flash[:notice] = "You have updated book successfully."
+      redirect_to @facility
+    else
+      render :edit
+    end
   end
 
   # 投稿削除
   def destroy
+    @facility = Facility.find(params[:id])
+    @facility.destroy
+    redirect_to facilities_path
   end
 
   private
