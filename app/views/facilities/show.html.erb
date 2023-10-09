@@ -57,20 +57,20 @@
             <% end %>
           </div>
 
-         <% @post_scripts.each do |post_script| %>
+         <%# @post_scripts.each do |post_script| %>
           <div class="card mx-auto mb-3" style="width: 70%;">
             <h5 class="card-header bg-white">
-              <%= post_script.title %>
+              <%#= post_script.title %>
             </h5>
             <div class="card-body">
-              <p class="card-text"><%= post_script.content %></p>
+              <p class="card-text"><%#= post_script.content %></p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <%= link_to post_script_path(post_script), class: "btn btn-secondary" do %>
+              <%#= link_to post_script_path(post_script), class: "btn btn-secondary" do %>
                 追記詳細
-              <% end %>
+              <%# end %>
             </div>
           </div>
-         <% end %>
+         <%# end %>
         </div>
       </div>
     </div>
