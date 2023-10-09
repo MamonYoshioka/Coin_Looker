@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-# 施設の情報を新規投稿するためのモデル
-  resources :facilities
-
+  # マイページ
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'
     get 'members/edit'  =>  "members#edit", as: 'member_edit'
@@ -9,6 +7,12 @@ Rails.application.routes.draw do
     get 'members/check' => "members#check", as: 'member_check'
     #patch 'members/is_withdraw'
   end
+
+  # ロッカーの情報を新規投稿するためのもの
+  resources :facilities
+
+  # 投稿されたロッカー情報に対して追記するためのもの
+  resources :post_scripts
 
   devise_for :end_users, controllers: {
     registrations: 'end_user/registrations',
