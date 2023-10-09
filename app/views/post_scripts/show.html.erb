@@ -1,0 +1,23 @@
+<div class="m-3">
+  <%= link_to '← 一覧へ戻る', facilities_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-header">
+        <%=@post_script.title %>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>
+            <%=@post_script.content %>
+          </p>
+          <div>
+            <%= link_to '情報を削除', post_script_path(@post_script.id), method: :delete, data: {confirm: "削除しますか？"},  class:"btn btn-danger" %>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

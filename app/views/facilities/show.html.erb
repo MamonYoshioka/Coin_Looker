@@ -4,14 +4,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-5 mt-3">
+    <div class="col-4 mt-3">
       <h2>投稿詳細</h2>
     </div>
     <div>
       <%= link_to '情報を更新', edit_facility_path, class:"btn btn-info" %>
-      <%= link_to '情報を削除', facility_path, class:"btn btn-danger"  %>
+      <%= link_to '情報を削除', facility_path, class:"btn btn-danger" %>
     </div>
-    <div class="col-7 mb-5">
+    <div class="col-8 mb-5">
       <div class="card">
         <div class="card-header">
           <%=@facility.loker_name %>
@@ -51,6 +51,26 @@
               <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             </div>
           </div>
+          <div class="post_script_new ml-2">
+            <%= link_to new_post_script_path do %>
+              <h5><i class="fa-solid fa-square-plus" style="color: #1fc768"></i>追記投稿</h5>
+            <% end %>
+          </div>
+
+         <% @post_scripts.each do |post_script| %>
+          <div class="card mx-auto mb-3" style="width: 70%;">
+            <h5 class="card-header bg-white">
+              <%= post_script.title %>
+            </h5>
+            <div class="card-body">
+              <p class="card-text"><%= post_script.content %></p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <%= link_to post_script_path(post_script), class: "btn btn-secondary" do %>
+                追記詳細
+              <% end %>
+            </div>
+          </div>
+         <% end %>
         </div>
       </div>
     </div>
