@@ -1,7 +1,5 @@
 class PostScriptsController < ApplicationController
-  # ロッカー情報追記の一覧
   def index
-    @post_scripts = PostScript.all
   end
 
   # 追記情報詳細
