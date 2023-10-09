@@ -1,0 +1,2 @@
+class PostScript < ApplicationRecord
+end
