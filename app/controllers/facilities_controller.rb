@@ -29,13 +29,13 @@ class FacilitiesController < ApplicationController
 
   # 登録編集
   def edit
-     @book = Facility.find(params[:id])
+    @book = Facility.find(params[:id])
   end
 
   # 登録内容更新
   def update
     @facility = Facility.find(params[:id])
-    if @book.update(facility_params)
+    if @facility.update(facility_params)
       flash[:notice] = "You have updated book successfully."
       redirect_to @facility
     else
