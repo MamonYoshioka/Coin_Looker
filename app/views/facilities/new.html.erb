@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <%# if singed_in? %>
-      <%= form_with model: @facility  do |f| %>
+      <%= form_with model: Facility  do |f| %>
         <div class="form-group">
           <%= f.label 'ロッカー名'%>
           <%= f.text_field :loker_name, class: 'form-control' %>
