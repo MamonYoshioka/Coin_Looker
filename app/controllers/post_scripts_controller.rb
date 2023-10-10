@@ -7,7 +7,7 @@ class PostScriptsController < ApplicationController
     @post_script = PostScript.find(params[:id])
   end
 
-  # 追記新規
+  # 追記新規投稿
   def new
     @post_script = PostScript.new
   end
@@ -17,6 +17,7 @@ class PostScriptsController < ApplicationController
     # PostScriptモデルの初期化
     @post_script = PostScript.new(post_script_params)
     @post_script.end_user_id = current_end_user.id
+    @post_script.facility_id =
     # PostScriptモデルをDBへ保存
     @post_script.save
     # showページへ画面遷移

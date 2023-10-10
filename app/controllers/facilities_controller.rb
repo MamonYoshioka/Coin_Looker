@@ -7,8 +7,8 @@ class FacilitiesController < ApplicationController
   # 情報詳細
   def show
     @facility = Facility.find(params[:id])
-    # ロッカー情報追記の一覧
-    @post_scripts = PostScript.all
+    # ロッカー情報追記の一覧(特定の記事にだけ投稿)
+    @post_scripts = @facility.post_scripts
   end
 
   # 新規作成
