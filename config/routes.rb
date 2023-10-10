@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :facilities
 
   # 投稿されたロッカー情報に対して追記するためのもの
-  resources :post_scripts
+  resources :post_scripts do
+    # 追記投稿されたものに対していいね機能を実装
+    resource :favorites, only: [:create, :destroy]
+  end
 
   devise_for :end_users, controllers: {
     registrations: 'end_user/registrations',
