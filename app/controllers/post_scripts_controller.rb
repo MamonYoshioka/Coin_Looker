@@ -7,20 +7,23 @@ class PostScriptsController < ApplicationController
     @post_script = PostScript.find(params[:id])
   end
 
-  # 追記新規
+  # 追記新規投稿
   def new
     @post_script = PostScript.new
+    @facility = Facility.find(params[:facility_id])
   end
 
   # 追記登録
   def create
     # PostScriptモデルの初期化
+    @facility = Facility.find(params[:facility_id])
     @post_script = PostScript.new(post_script_params)
     @post_script.end_user_id = current_end_user.id
+    @post_script.facility_id = @facility.id
     # PostScriptモデルをDBへ保存
     @post_script.save
     # showページへ画面遷移
-    redirect_to post_script_path(@post_script.id)
+    redirect_to facility_post_script_path(@facility.id, @post_script.id)
   end
 
   # 登録編集
@@ -33,6 +36,7 @@ class PostScriptsController < ApplicationController
 
   # 投稿削除
   def destroy
+    @facility= Facility.find(params[:facility_id])
     @post_script = PostScript.find(params[:id])
     @post_script.destroy
     redirect_to facilities_path
