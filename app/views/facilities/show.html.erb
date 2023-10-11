@@ -41,25 +41,22 @@
             <div class="card-body">
               <h5 class="card-title">概要</h5>
               <p class=card-text><%=@facility.area_introduction %></p>
-              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             </div>
           </div>
           <div class="tab-pane fade" id="area" role="tabpanel" aria-labelledby="profile-tab">
             <div class="card-body">
               <h5 class="card-title">エリア</h5>
               <p class=card-text><%=@facility.area_name %></p>
-              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             </div>
           </div>
           <div class="tab-pane fade" id="estimated_cost" role="tabpanel" aria-labelledby="contact-tab">
             <div class="card-body">
               <h5 class="card-title">費用目安</h5>
               <p class=card-text><%=@facility.cost %></p>
-              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
             </div>
           </div>
           <div class="post_script_new ml-2">
-            <%= link_to new_facility_post_script_path do %>
+            <%= link_to new_facility_post_script_path(@facility.id) do %>
               <h5><i class="fa-solid fa-square-plus" style="color: #1fc768"></i>追記投稿</h5>
             <% end %>
           </div>
@@ -71,7 +68,7 @@
             </h5>
             <div class="card-body">
               <p class="card-text"><%= post_script.content %></p>
-              <%= link_to post_script_path(post_script), class: "btn btn-secondary" do %>
+              <%= link_to facility_post_script_path(post_script.facility, post_script.id), class: "btn btn-secondary" do %>
                 追記詳細
               <% end %>
             </div>
