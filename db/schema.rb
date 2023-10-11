@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_09_233349) do
+ActiveRecord::Schema.define(version: 2023_10_11_135724) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 2023_10_09_233349) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.integer "post_script_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_script_comments", force: :cascade do |t|
+    t.text "comment"
     t.integer "end_user_id"
     t.integer "post_script_id"
     t.datetime "created_at", precision: 6, null: false
