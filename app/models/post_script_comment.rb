@@ -1,0 +1,2 @@
+class PostScriptComment < ApplicationRecord
+end
