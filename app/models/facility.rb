@@ -3,6 +3,8 @@ class Facility < ApplicationRecord
   belongs_to :end_user
   # 追記情報投稿とのアソシエーション
   has_many :post_scripts, dependent: :destroy
+  # 追記投稿についてのコメント機能とのアソシエーション
+  has_many :post_script_comments, dependent: :destroy
 
   def create
     @facility = Facility.find(params[facility_id])
