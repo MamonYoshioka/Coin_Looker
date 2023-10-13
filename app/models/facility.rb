@@ -3,6 +3,8 @@ class Facility < ApplicationRecord
   belongs_to :end_user
   # 追記情報投稿とのアソシエーション
   has_many :post_scripts, dependent: :destroy
+  #ページネーション
+  paginates_per 20
 
   def create
     @facility = Facility.find(params[facility_id])
