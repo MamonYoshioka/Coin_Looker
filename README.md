@@ -24,6 +24,7 @@
 - お土産、グッズなどを一時的に預けたい時
 
 ## 設計書
+https://docs.google.com/presentation/d/1hVtswGZcBACe00THc8O3IbW-OKQo630O-_eyB-81Bwo/edit?usp=sharing
 
 ## 開発環境
 - MacOS
