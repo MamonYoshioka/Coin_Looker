@@ -35,6 +35,12 @@
               <strong><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>ログアウト</strong>
             <% end %>
           </li>
+
+        <% elsif admin_signed_in? %>
+           <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+           </li>
+
         <% else %>
           <li class='nav-item'>
             <%= link_to about_path, class: 'nav-link text-white' do %>
