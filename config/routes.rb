@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     sessions: 'end_user/sessions'
   }
 
+  devise_scope :end_user do
+    post 'end_users/guest_sign_in', to: 'end_user/sessions#guest_sign_in'
+  end
+
     devise_for :admins, controllers: {
     sessions: 'admin/sessions'
   }

@@ -2,6 +2,7 @@
 
 class EndUser::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_guest, only: :destroy
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -9,6 +10,12 @@ class EndUser::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     #遷移先のパス
     about_path
+  end
+
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
   end
 
   # GET /resource/sign_up
