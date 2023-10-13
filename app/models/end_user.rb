@@ -9,4 +9,7 @@ class EndUser < ApplicationRecord
 
   # いいね機能(複数のユーザーからのいいね)
   has_many :favorites, dependent: :destroy
+
+  # 追記投稿についてのコメント機能とのアソシエーション
+  has_many :post_script_comments, dependent: :destroy
 end
