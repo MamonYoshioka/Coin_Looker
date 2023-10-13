@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       # 追記投稿されたものに対していいね機能を実装
       resource :favorites, only: [:create, :destroy]
       # 追記投稿についてのコメント機能とのアソシエーション
-      resources :book_comments, only: [:create, :destroy]
+      resources :post_script_comments, only: [:create, :destroy]
     end
   end
 
