@@ -8,11 +8,14 @@
       <h2>投稿詳細</h2>
     </div>
     <div>
-      <!-- Large modal -->
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
-        情報を更新
-      </button>
-      <%= link_to '情報を削除', facility_path, method: :delete, data: {confirm: '削除しますか？'},class:"btn btn-danger" %>
+      <% if @facility.end_user == current_end_user %>
+        <!-- Large modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+          情報を更新
+        </button>
+        <%= link_to '情報を削除', facility_path, method: :delete, data: {confirm: '削除しますか？'},class:"btn btn-danger" %>
+      <% else %>
+      <% end %>
     </div>
     <div>
       <%= render 'edit' %>

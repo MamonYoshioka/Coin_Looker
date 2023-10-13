@@ -57,6 +57,12 @@
               <strong><i class="fa-solid fa-right-to-bracket" style="color: #fff;"></i> ログイン</strong>
             <% end %>
           </li>
+
+          <li>
+            <%= link_to  end_users_guest_sign_in_path, class: "nav-link", method: :post  do %>
+              <strong><i class="fa-solid fa-circle-user" style="color: #fff;"></i> ゲストログイン（閲覧用）</strong>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
