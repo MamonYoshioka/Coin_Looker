@@ -15,10 +15,15 @@ class EndUser < ApplicationRecord
 
   # 以下を追加
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |end_user|
+    find_or_create_by!(email: 'guest@example.com', ) do |end_user|
       end_user.password = SecureRandom.urlsafe_base64
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+      end_user.family_name = 'ゲスト'
+      end_user.first_name = '太郎'
+      end_user.family_name_kana = 'ゲスト'
+      end_user.fist_name_kana = 'タロウ'
+      end_user.nick_name = '-'
     end
   end
 end
