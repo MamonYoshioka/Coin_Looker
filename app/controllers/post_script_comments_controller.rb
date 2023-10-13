@@ -1,8 +1,8 @@
 class PostScriptCommentsController < ApplicationController
   def create
     post_script = PostScript.find(params[:post_script_id])
-    comment = current_end_user.post_script_comments.new(post_script_comment_params)
-    comment.post_script_id = post_script.id
+    post_sccript_comment = current_end_user.post_script_comments.new(post_script_comment_params)
+    post_script_comment.post_script_id = post_script.id
     redirect_to request.referer
   end
 

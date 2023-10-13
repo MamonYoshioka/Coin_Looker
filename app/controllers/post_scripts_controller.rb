@@ -5,6 +5,7 @@ class PostScriptsController < ApplicationController
   # 追記情報詳細
   def show
     @post_script = PostScript.find(params[:id])
+    @book_comment = PostScriptComment.new
   end
 
   # 追記新規投稿
