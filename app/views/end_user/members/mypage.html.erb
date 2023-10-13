@@ -7,7 +7,10 @@
     <div class="col-10 d-flex">
       <h4><b>登録情報</b></h4>
       <p class="ml-5 pl-5">
-        <%= link_to "編集する", end_user_member_edit_path, class: "btn btn-success", style: "width: 150px" %>
+        <% if @member.email == 'guest@example.com' %>
+        <% else %>
+          <%= link_to "編集する", end_user_member_edit_path, class: "btn btn-success", style: "width: 150px" %>
+        <% end %>
       </p>
     </div>
 
