@@ -1,15 +1,7 @@
 class SearchesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_end_user!
 
   def search
-    @model = params[:model]
-    @content = params[:content]
-    @method = params[:method]
-
-    if @model  == "end_user"
-      @records = EndUser.search_for(@content, @method)
-    else
-      @records = Facility.search_for(@content, @method)
-    end
+    @search_results = Facility.where("area_name LIKE ?", "%#{params[:search]}%")
   end
 end

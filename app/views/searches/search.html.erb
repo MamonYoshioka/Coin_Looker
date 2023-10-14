@@ -1,0 +1,7 @@
+<h1>検索結果</h1>
+<ul>
+  <% @search_results.each do |result| %>
+    <li><%= result.area_name %></li>
+    <!-- ここで検索結果の詳細を表示するコードを追加 -->
+  <% end %>
+</ul>

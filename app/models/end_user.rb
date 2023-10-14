@@ -39,9 +39,3 @@ class EndUser < ApplicationRecord
     end
   end
 end
-
-
-
-
-
-end
