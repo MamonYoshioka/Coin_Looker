@@ -57,3 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'kaminari'
+
+# GoogleMap取得のためのgem
+gem 'gmaps4rails'
+gem 'geocoder'
