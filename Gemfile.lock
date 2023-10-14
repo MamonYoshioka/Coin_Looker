@@ -88,8 +88,10 @@ GEM
       warden (~> 1.2.3)
     erubi (1.12.0)
     ffi (1.16.2)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gmaps4rails (2.1.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -250,6 +252,8 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
