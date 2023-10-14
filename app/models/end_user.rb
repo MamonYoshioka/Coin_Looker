@@ -13,7 +13,7 @@ class EndUser < ApplicationRecord
   # 追記投稿についてのコメント機能とのアソシエーション
   has_many :post_script_comments, dependent: :destroy
 
-  # 以下を追加
+  # ゲストログイン、以下を追加
   def self.guest
     find_or_create_by!(email: 'guest@example.com', ) do |end_user|
       end_user.password = SecureRandom.urlsafe_base64
@@ -26,4 +26,22 @@ class EndUser < ApplicationRecord
       end_user.nick_name = '-'
     end
   end
+  # 検索機能
+  def self.search_for(content, method)
+    if method == 'perfect'
+      EndUser.where(name: content)
+    elsif method == 'forward'
+      EndUser.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      EndUser.where('name LIKE ?', '%' + content)
+    else
+      EndUser.where('name LIKE ?', '%' + content + '%')
+    end
+  end
+end
+
+
+
+
+
 end

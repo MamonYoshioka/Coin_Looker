@@ -21,6 +21,18 @@ class Facility < ApplicationRecord
     Script.find_by(id: params[:id], post_script_id: params[:post_script_id]).destroy
   end
 
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Facility.where(area_name: content)
+    elsif method == 'forward'
+      Facility.where('area_name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Facility.where('area_name LIKE ?', '%' + content)
+    else
+      Facility.where('area_name LIKE ?', '%' + content + '%')
+    end
+  end
+
   private
   def post_script_params
     params.require(:post_script).permit(:title, :content)
