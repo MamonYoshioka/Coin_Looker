@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       resources :post_script_comments, only: [:create, :destroy]
     end
   end
-
-
+  # 検索機能
+  　get "/search", to: "searches#search"
 
   devise_for :end_users, controllers: {
     registrations: 'end_user/registrations',
