@@ -20,9 +20,11 @@ Rails.application.routes.draw do
       # 追記投稿されたものに対していいね機能を実装
       resource :favorites, only: [:create, :destroy]
       # 追記投稿についてのコメント機能とのアソシエーション
-      resources :post_script_comments, only: [:create, :destroy]
+      
     end
   end
+  resources :post_script_comments, only: [:create, :destroy]
+  
   get 'search', to: 'searches#search', as: 'search'
 
   devise_for :end_users, controllers: {
