@@ -52,7 +52,7 @@ class FacilitiesController < ApplicationController
 
   private
   def facility_params
-    params.require(:facility).permit(:loker_name, :area_name, :area_introduction, :cost, :number_of_loker)
+    params.require(:facility).permit(:loker_name, :area_name, :area_introduction, :cost, :latitude,:longitude, :number_of_loker, image: [])
   end
 
 end

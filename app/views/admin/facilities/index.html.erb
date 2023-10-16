@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mt-2">
+      <h2>
+        <i class="fa-solid fa-building-user fa-fade" style="color: #536a93;"></i>
+        <span> | </span>投稿一覧ページ
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="m-3">
+        <%#= link_to '情報を登録', new_facility_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @facilities.each do |facility| %>
+      <div class="col-sm-12 mb-3">
+        <%= link_to admin_facility_path(facility) do %>
+          <div class="card mx-auto" style="max-width: 480px">
+            <div class="card-body">
+              <h5 class="card-title"><%= facility.loker_name %></h5>
+              <p class="card-text"><%= facility.area_introduction %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mx-auto">
+      <%= paginate @facilities %>
+    </div>
+  </div>
+</div>

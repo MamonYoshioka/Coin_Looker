@@ -1,7 +1,19 @@
 <h1>検索結果</h1>
 <ul>
   <% @search_results.each do |result| %>
-    <li><%= result.area_name %></li>
-    <!-- ここで検索結果の詳細を表示するコードを追加 -->
+    <!-- 検索結果の詳細 -->
+    <div class="col-sm-12 mb-3">
+      <%= link_to facility_path(result) do %>
+        <div class="card mx-auto" style="max-width: 480px">
+          <div class="card-body">
+            <h5 class="card-title"><%= result.loker_name %></h5>
+            <p class="card-text"><%= result.area_introduction %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </ul>
+<div class="mx-auto">
+  <%= paginate @search_results %>
+</div>

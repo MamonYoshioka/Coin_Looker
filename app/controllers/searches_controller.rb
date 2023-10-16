@@ -2,6 +2,6 @@ class SearchesController < ApplicationController
   before_action :authenticate_end_user!
 
   def search
-    @search_results = Facility.where("area_name LIKE ?", "%#{params[:search]}%")
+    @search_results = Facility.where("area_name LIKE ?", "%#{params[:search]}%").page(params[:page])
   end
 end

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    get 'post_scripts/index'
+    get 'post_scripts/show'
+  end
   # マイページ
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'
@@ -29,9 +34,17 @@ Rails.application.routes.draw do
     post 'end_users/guest_sign_in', to: 'end_user/sessions#guest_sign_in'
   end
 
+
+
     devise_for :admins, controllers: {
     sessions: 'admin/sessions'
   }
+
+    namespace :admin do
+      resources :facilities, only: [:index, :show]
+    end
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'end_user/homes#top'
   get '/about' => 'end_user/homes#about', as: 'about'

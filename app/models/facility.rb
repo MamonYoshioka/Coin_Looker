@@ -6,6 +6,9 @@ class Facility < ApplicationRecord
   #ページネーション
   paginates_per 20
 
+  # 複数枚画像を投稿できるようにする
+  has_many_attached :image
+
   def create
     @facility = Facility.find(params[facility_id])
     @post_script = Script.new(script_params)

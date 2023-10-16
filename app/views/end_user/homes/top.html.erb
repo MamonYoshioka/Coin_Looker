@@ -1,23 +1,11 @@
-<h1>ここがTopページになります</h1>
-<div>
-  <%= render "searches/form" %>
-</div>
+<div class="container">
+  <div class="row">
 
-<!--以下はGoogle MAPが正常に表示されるかのもの-->
-<h3>GoogleMapTest</h3>
-<div class="map">
-  <div id="map">
+    <div class="mx-auto">
+      <%= image_tag 'coin_loker.jpg', size: '500x400'%>
+      <div class="text-center">
+        <%= render "searches/form" %>
+      </div>
+    </div>
   </div>
-</div>
-
-<div type="text/javascript">
-  <script>
-    function initMap(){
-      let map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 35.68148018552081, lng: 139.76717844004995 },
-      zoom: 15
-      });
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
 </div>

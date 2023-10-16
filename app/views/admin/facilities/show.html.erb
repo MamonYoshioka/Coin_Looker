@@ -1,5 +1,5 @@
 <div class="m-3">
-  <%= link_to '← 一覧へ戻る', facilities_path, class: "btn btn-primary" %>
+  <%= link_to '← 一覧へ戻る', admin_facilities_path, class: "btn btn-primary" %>
 </div>
 
 <div class="container">
@@ -7,18 +7,13 @@
     <div class="col-5 mt-3">
       <h2>投稿詳細</h2>
     </div>
-    <div>
-      <% if @facility.end_user == current_end_user %>
-        <!-- Large modal -->
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
-          情報を更新
-        </button>
-        <%= link_to '情報を削除', facility_path, method: :delete, data: {confirm: '削除しますか？'},class:"btn btn-danger" %>
-      <% else %>
-      <% end %>
+    <div class="col-8 mb-2" >
+      <!-- Large modal @ admin -->
+      <%= link_to '情報を削除', admin_facility_path, method: :delete, data: {confirm: '削除しますか？'},class:"btn btn-danger" %>
     </div>
     <div>
-      <%= render 'edit' %>
+      <%= render 'facilities/edit' %>
+
     </div>
 
     <div class="col-8 mb-5">
@@ -67,46 +62,18 @@
           <div class="tab-pane fade" id="estimated_image" role="tabpanel" aria-labelledby="image-tab">
             <div class="card-body">
               <h5 class="card-title">画像</h5>
-              <div class=card-text>
-                <% if @facility.image.attached? %>
-                  <% @facility.image.each do |image| %>
-                    <%= image_tag image.variant(resize: '300x200') %>
-                  <% end %>
-                <% else %>
-                  <%= image_tag 'no_image_photo', size: "150x100"%>
-                <% end %>
-              </div>
+              <p class=card-text>画像が入る予定</p>
             </div>
           </div>
           <div class="tab-pane fade" id="estimated_map" role="tabpanel" aria-labelledby="map-tab">
             <div class="card-body">
               <h5 class="card-title">場所</h5>
-              <!--以下はGoogle MAPが正常に表示されるかのもの-->
-              <h3>GoogleMapTest</h3>
-              <div class="map">
-                <div id="map">
-                </div>
-              </div>
-              <script>
-                function initMap(){
-                  let map = new google.maps.Map(document.getElementById('map'), {
-                  center: {lat: <%=@facility.latitude %>, lng: <%=@facility.longitude %>},
-                  zoom: 15
-                  });
-                }
-              </script>
-              <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+              <p class=card-text>Google Mapが入る予定</p>
             </div>
           </div>
 
-          <div class="post_script_new ml-2">
-            <%= link_to new_facility_post_script_path(@facility.id) do %>
-              <h5><i class="fa-solid fa-square-plus" style="color: #1fc768"></i>追記投稿</h5>
-            <% end %>
-          </div>
-
          <% @post_scripts.each do |post_script| %>
-          <div class="card mx-auto mb-3" style="width: 70%;">
+          <div class="card mx-auto mb-3 mt-4" style="width: 70%;">
             <h5 class="card-header bg-white">
               <%= post_script.title %>
             </h5>
