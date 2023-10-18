@@ -1,6 +1,7 @@
 <div class="m-3">
-  <%= link_to '← 一覧へ戻る', facilities_path, class: "btn btn-primary" %>
+  <%= link_to '← 一覧へ戻る', admin_facilities_path, class: "btn btn-primary" %>
 </div>
+
 
 <div class="container">
   <div class="row">
@@ -13,11 +14,15 @@
           <div>
             <%=@post_script.content %><br>
             <div id="favorite_btn_<%= @post_script.id %>">
-              <%= render "favorites/btn", facility:@post_script.facility,post_script: @post_script %>
+              <%= render "favorites/btn", facility:@post_script.facility,post_script: @post_script if current_end_user %>
             </div>
           </div>
           <div>
-            <%#= render "post_script_comments/form", post_script: @post_script, post_script_comment: @post_script_comment %>
+            <%= render "post_script_comments/form", post_script_comment: @post_script_comment %>
+
+            <%= @post_script.post_script_comments.each do |post_script_comment| %>
+              <%= post_script_comment.comment %>
+            <% end %>
           </div>
             <% if @post_script.end_user == current_end_user %>
               <div class="mt-3">
