@@ -36,6 +36,12 @@ class Facility < ApplicationRecord
     end
   end
 
+  #GoogleMapに関する記述
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
+
+
   private
   def post_script_params
     params.require(:post_script).permit(:title, :content)

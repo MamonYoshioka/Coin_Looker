@@ -20,9 +20,10 @@
           <div>
             <%= render "post_script_comments/form", post_script_comment: @post_script_comment %>
 
-            <%= @post_script.post_script_comments.each do |post_script_comment| %>
-              <%= post_script_comment.comment %>
+            <% @post_script.post_script_comments.each do |post_script_comment| %>
+              <p><%= post_script_comment.comment %></p>
             <% end %>
+
           </div>
             <% if @post_script.end_user == current_end_user %>
               <div class="mt-3">

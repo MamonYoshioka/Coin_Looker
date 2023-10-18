@@ -16,6 +16,7 @@ class PostScriptCommentsController < ApplicationController
     def destroy
       comment = PostScriptComment.find(params[:id])
       comment.destroy
+      redirect_back(fallback_location: facilities_path)
     end
 
   private

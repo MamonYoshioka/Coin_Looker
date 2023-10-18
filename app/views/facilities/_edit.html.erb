@@ -27,9 +27,10 @@
               <%= f.label '写真' %><br>
               <%= f.file_field :images, multiple: true  %><br>
 
-              <%= f.label '地図'%>
-              <%= f.text_field :latitude, class: 'form-control' %>
-              <%= f.text_field :longitude, class: 'form-control' %>
+              <%= f.label '住所'%>
+              <%= f.text_field :address, class: 'form-control' %>
+              <%#= f.text_field :latitude, class: 'form-control' %>
+              <%#= f.text_field :longitude, class: 'form-control' %>
 
 
               <%#= f.label 'ロッカー数'%>
