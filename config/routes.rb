@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'post_scripts/index'
-    get 'post_scripts/show'
-  end
   # マイページ
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'

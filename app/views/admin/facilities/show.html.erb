@@ -100,7 +100,7 @@
             </h5>
             <div class="card-body">
               <p class="card-text"><%= post_script.content %></p>
-              <%= link_to admin_post_scripts_show_path(post_script.facility, post_script.id), class: "btn btn-secondary" do %>
+              <%= link_to admin_post_script_path(post_script.id), class: "btn btn-secondary" do %>
                 追記詳細
               <% end %>
             </div>

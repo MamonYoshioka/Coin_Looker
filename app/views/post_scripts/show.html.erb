@@ -19,10 +19,16 @@
           <div>
             <%= render "post_script_comments/form", post_script_comment: @post_script_comment %>
 
-            <%= @post_script.post_script_comments.each do |post_script_comment| %>
-              <%= post_script_comment.comment %>
+            <% @post_script.post_script_comments.each do |post_script_comment| %>
+              <p> <%= post_script_comment.comment %> </p>
+              <% if post_script_comment.end_user == current_end_user %>
+                <%= link_to 'コメント削除', post_script_comment_path(post_script_comment),  method: :delete, data: {confirm: "削除しますか？"} %>
+              <% end %>
             <% end %>
+
           </div>
+
+
             <% if @post_script.end_user == current_end_user %>
               <div class="mt-3">
                 <%= link_to '情報を削除', facility_post_script_path(@post_script.facility, @post_script.id), method: :delete, data: {confirm: "削除しますか？"},  class:"btn btn-danger" %>

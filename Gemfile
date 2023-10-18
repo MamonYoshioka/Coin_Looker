@@ -61,3 +61,4 @@ gem 'kaminari'
 # GoogleMap取得のためのgem
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'dotenv-rails'
