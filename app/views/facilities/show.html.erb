@@ -68,8 +68,8 @@
             <div class="card-body">
               <h5 class="card-title">画像</h5>
               <div class=card-text>
-                <% if @facility.image.attached? %>
-                  <% @facility.image.each do |image| %>
+                <% if @facility.images.attached? %>
+                  <% @facility.images.each do |image| %>
                     <%= image_tag image.variant(resize: '300x200') %>
                   <% end %>
                 <% else %>
