@@ -17,20 +17,18 @@
               <%= render "favorites/btn", facility:@post_script.facility,post_script: @post_script if current_end_user %>
             </div>
           </div>
-          <div>
-            <%= render "post_script_comments/form", post_script_comment: @post_script_comment %>
-
+          <div class= "mt-5">
+            <h6><strong>コメント一覧</strong></h6>
             <% @post_script.post_script_comments.each do |post_script_comment| %>
               <p><%= post_script_comment.comment %></p>
-            <% end %>
-
-          </div>
-            <% if @post_script.end_user == current_end_user %>
-              <div class="mt-3">
-                <%= link_to '情報を削除', facility_post_script_path(@post_script.facility, @post_script.id), method: :delete, data: {confirm: "削除しますか？"},  class:"btn btn-danger" %>
+              <div>
+                <%= link_to 'コメント削除', post_script_comment_path(post_script_comment), method: :delete, data: {confirm: "削除しますか？"}, class: "manage" %>
               </div>
-            <% else %>
             <% end %>
+          </div>
+          <div class="mt-3">
+            <%= link_to '情報を削除', facility_post_script_path(@post_script.facility, @post_script.id), method: :delete, data: {confirm: "削除しますか？"},  class:"btn btn-danger" %>
+          </div>
         </div>
       </div>
     </div>

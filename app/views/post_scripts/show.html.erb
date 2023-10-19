@@ -16,13 +16,15 @@
               <%= render "favorites/btn", facility:@post_script.facility,post_script: @post_script if current_end_user %>
             </div>
           </div>
-          <div>
+          <div class="mt-5">
             <%= render "post_script_comments/form", post_script_comment: @post_script_comment %>
 
             <% @post_script.post_script_comments.each do |post_script_comment| %>
               <p> <%= post_script_comment.comment %> </p>
               <% if post_script_comment.end_user == current_end_user %>
-                <%= link_to 'コメント削除', post_script_comment_path(post_script_comment),  method: :delete, data: {confirm: "削除しますか？"} %>
+                <div>
+                  <%= link_to 'コメント削除', post_script_comment_path(post_script_comment),  method: :delete, data: {confirm: "削除しますか？"} %>
+                </div>
               <% end %>
             <% end %>
 

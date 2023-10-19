@@ -7,7 +7,7 @@ class Facility < ApplicationRecord
   paginates_per 20
 
   # 複数枚画像を投稿できるようにする
-  has_many_attached :image
+  has_many_attached :images
 
   def create
     @facility = Facility.find(params[facility_id])
