@@ -1,3 +1,32 @@
 // Place all the styles related to the post_scripts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.comment_title {
+  background: #ffd98a;
+  position: relative;/*相対位置*/
+  padding-left: 1.2em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  border-radius: 0 10px 10px 0;
+  margin:10px;
+}
+.comment_title:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f075";/*アイコンのユニコード*/
+  display: inline-block;
+  line-height: 40px;
+  position: absolute;
+  padding: 0em;
+  color: white;
+  background: #ffa337;
+  font-weight: 900;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  left: -1.35em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: solid 3px white;
+  border-radius: 50%;
+}

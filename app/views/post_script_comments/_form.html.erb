@@ -1,6 +1,11 @@
 <%= form_with model: post_script_comment do |f| %>
-  <h5>ここがフォームのページになります。</h5>
-  <%= f.hidden_field :post_script_id %>
-  <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに", class: "w-40" %>
-  <%= f.submit "送信" %>
+  <div class="row mb-2">
+    <%= f.hidden_field :post_script_id, class: "col-sm-2 col-form-label" %>
+    <div class="col-12">
+      <%= f.text_area :comment, rows:'5', placeholder: "コメント", class: "w-40 form-control"  %>
+    </div>
+    <div class= "mt-3 ms-3">
+      <%= f.submit "コメントする", class: "btn btn-outline-info" %>
+    </div>
+  </div>
 <% end %>
