@@ -19,10 +19,10 @@
             <td>
               <% if end_user.is_deleted == false %>
                 有効
-                <%= link_to "利用中にする", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-success" %>
+                <%= link_to "利用中", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-success" %>
               <% else %>
                 退会
-                <%= link_to "利用停止中にさせる", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-danger" %>
+                <%= link_to "利用停止中", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-danger" %>
               <% end %>
             </td>
           </tr>
