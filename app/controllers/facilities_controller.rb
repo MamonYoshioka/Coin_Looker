@@ -36,9 +36,10 @@ class FacilitiesController < ApplicationController
   def update
     @facility = Facility.find(params[:id])
     if @facility.update(facility_params)
-      flash[:notice] = "You have updated book successfully."
+      flash[:notice] = "You have updated facility successfully."
       redirect_to @facility
     else
+      flash.now[:alert] = "failed"
       render :edit
     end
   end
