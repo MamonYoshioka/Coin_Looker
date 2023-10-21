@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'end_users/index'
+    get 'end_users/unsubscribe'
+  end
   # マイページ
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'
@@ -44,6 +48,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :facilities, only: [:index, :show]
       resources :post_scripts, only: [:show]
+      resources :end_users, only: [:index]
     end
 
 
