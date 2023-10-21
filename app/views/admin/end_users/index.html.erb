@@ -7,25 +7,26 @@
         <th>氏名</th>
         <th>メールアドレス</th>
         <th>ステータス</th>
-        <th></th>
+        <th>退会有無</th>
       </tr>
     </thead>
     <tbody>
-
-    <% @end_users.each do |end_user| %>
-        <tr>
-        <td><%= end_user.id %></td>
-        <td><%= end_user.family_name + end_user.first_name %></td>
-        <td><%= end_user.email %></td>
-        <td>
-        <% if end_user.is_deleted == false %>
-        有効
-        <% else %>
-        退会
+        <% @end_users.each do |end_user| %>
+          <tr>
+            <td><%= end_user.id %></td>
+            <td><%= end_user.family_name + end_user.first_name %></td>
+            <td><%= end_user.email %></td>
+            <td>
+              <% if end_user.is_deleted == false %>
+                有効
+                <%= link_to "利用中にする", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-success" %>
+              <% else %>
+                退会
+                <%= link_to "利用停止中にさせる", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-        </td>
-        <% end %>
-        </tr>
     </tbody>
    </table>
     <%= paginate @end_users %>
