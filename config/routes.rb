@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     get 'members/edit'  =>  "members#edit", as: 'member_edit'
     patch 'members/mypage' => "members#update", as: 'member_update'
     get 'members/check' => "members#check", as: 'member_check'
-    #patch 'members/is_withdraw'
+    # 退会確認画面
+    get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
+    # 論理削除用のルーティング
+     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
   end
 
   # ロッカーの情報を新規投稿するためのもの

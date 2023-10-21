@@ -20,6 +20,15 @@ class EndUser::MembersController < ApplicationController
     end
   end
 
+  def withdrawal
+    @member = EndUser.find(params[:id])
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @member.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
+
   private
     def mypage_params
       params.require(:end_user).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :email,:nick_name)
