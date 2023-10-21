@@ -10,6 +10,7 @@
         <% if @member.email == 'guest@example.com' %>
         <% else %>
           <%= link_to "編集する", end_user_member_edit_path, class: "btn btn-success", style: "width: 150px" %>
+          <%= link_to "退会する", end_user_unsubscribe_path(@member.id), class: "btn btn-warning", style: "width: 150px" %>
         <% end %>
       </p>
     </div>

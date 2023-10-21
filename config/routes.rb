@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'end_users/index'
+    get 'end_users/unsubscribe'
+  end
   # マイページ
   namespace :end_user do
     get 'members/mypage' => "members#mypage", as:'member'
     get 'members/edit'  =>  "members#edit", as: 'member_edit'
     patch 'members/mypage' => "members#update", as: 'member_update'
     get 'members/check' => "members#check", as: 'member_check'
-    #patch 'members/is_withdraw'
+    # 退会確認画面
+    get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
+    # 論理削除用のルーティング
+     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
   end
 
   # ロッカーの情報を新規投稿するためのもの
@@ -41,6 +48,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :facilities, only: [:index, :show]
       resources :post_scripts, only: [:show]
+      resources :end_users, only: [:index]
     end
 
 
