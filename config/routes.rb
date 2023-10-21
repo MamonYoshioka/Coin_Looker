@@ -49,6 +49,8 @@ Rails.application.routes.draw do
       resources :facilities, only: [:index, :show]
       resources :post_scripts, only: [:show]
       resources :end_users, only: [:index]
+      # 論理削除用のルーティング
+      patch '/admin/members/:id/unsubscribe' => 'admin/members#unsubscribe', as: 'unsubscribe'
     end
 
 
