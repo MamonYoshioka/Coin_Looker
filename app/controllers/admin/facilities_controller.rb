@@ -1,4 +1,5 @@
 class Admin::FacilitiesController < ApplicationController
+before_action :authenticate_admin!
   def index
     @facilities = Facility.all.includes(:end_user).page(params[:page]).per(10)
   end

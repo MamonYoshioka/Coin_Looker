@@ -1,11 +1,12 @@
 class Admin::EndUsersController < ApplicationController
+before_action :authenticate_admin!
   def index
     @end_users = EndUser.all.page(params[:page])
   end
 
   def unsubscribe
     @member = EndUser.find(params[:id])
-    @member.update(is_deleted: !@end_user.is_deleted)
+    @member.update(is_deleted: !@member.is_deleted)
      if @member.is_deleted
        flash[:notice] = "利用停止中に変更"
      else
