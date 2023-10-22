@@ -22,7 +22,7 @@ class EndUser < ApplicationRecord
       end_user.family_name = 'ゲスト'
       end_user.first_name = '太郎'
       end_user.family_name_kana = 'ゲスト'
-      end_user.fist_name_kana = 'タロウ'
+      end_user.first_name_kana = 'タロウ'
       end_user.nick_name = '-'
     end
   end
