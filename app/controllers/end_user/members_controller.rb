@@ -1,4 +1,5 @@
 class EndUser::MembersController < ApplicationController
+before_action :authenticate_end_user!
 # 会員情報
   def mypage
     @member = current_end_user

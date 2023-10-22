@@ -16,15 +16,13 @@
             <td><%= end_user.id %></td>
             <td><%= end_user.family_name + end_user.first_name %></td>
             <td><%= end_user.email %></td>
-            <td>
-              <% if end_user.is_deleted == false %>
-                有効
-                <%= link_to "利用中", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-success" %>
-              <% else %>
-                退会
-                <%= link_to "利用停止中", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-danger" %>
-              <% end %>
-            </td>
+            <% if end_user.is_deleted == false %>
+              <td>有効</td>
+              <td><%= link_to "利用中", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-success" %></td>
+            <% else %>
+              <td>退会</td>
+              <td><%= link_to "利用停止中", admin_unsubscribe_path(end_user.id), method: :patch, class: "btn btn-danger" %></td>
+            <% end %>
           </tr>
         <% end %>
     </tbody>
