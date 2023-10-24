@@ -1,6 +1,9 @@
 class PostScript < ApplicationRecord
   belongs_to :end_user
 
+  validates :title, presence: true
+  validates :content, presence: true
+
   # 追記投稿
   belongs_to :facility
   # いいね機能

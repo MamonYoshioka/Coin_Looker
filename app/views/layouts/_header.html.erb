@@ -37,8 +37,22 @@
           </li>
 
         <% elsif admin_signed_in? %>
-           <li>
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+           <li class='nav-item' style="margin-right: 10px;">
+            <%= link_to admin_end_users_path, class: 'text-white' do %>
+              <i class="fa-solid fa-users" style="color: #ffcb5c; margin-right: 5px;"></i>会員一覧    |
+            <% end %>
+           </li>
+
+           <li class='nav-item' style="margin-right: 10px;">
+            <%= link_to admin_facilities_path, class: 'text-white' do %>
+              <i class="fa-regular fa-newspaper" style="color: #ffcb5c; margin-right: 5px;"></i>投稿一覧   |
+            <% end %>
+           </li>
+
+           <li class='nav-item'>
+            <%= link_to  destroy_admin_session_path, method: :delete, class: 'text-white' do %>
+              <i class="fa-solid fa-right-from-bracket" style="color: #ffcb5c; margin-right: 5px;"></i> ログアウト
+            <% end %>
            </li>
 
         <% else %>

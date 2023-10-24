@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # 追記投稿についてのコメント機能とのアソシエーション
+  # 追記投稿についてのコメント機能
   resources :post_script_comments, only: [:create, :destroy]
 
   get 'search', to: 'searches#search', as: 'search'
@@ -42,9 +42,10 @@ Rails.application.routes.draw do
   }
 
     namespace :admin do
-      resources :facilities, only: [:index, :show]
-      resources :post_scripts, only: [:show]
+      resources :facilities, only: [:index, :show, :destroy]
+      resources :post_scripts, only: [:show, :destroy]
       resources :end_users, only: [:index]
+      resources :post_script_comments, only: [:destroy]
       # 論理削除用のルーティング
       patch '/members/:id/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
     end

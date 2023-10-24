@@ -1,4 +1,7 @@
 class FacilitiesController < ApplicationController
+  before_action :authenticate_end_user!, only: [:new, :create, :update, :destroy]
+
+
   # ロッカー情報の一覧
   def index
     @facilities = Facility.all.includes(:end_user).page(params[:page]).per(5)
@@ -22,9 +25,14 @@ class FacilitiesController < ApplicationController
     @facility = Facility.new(facility_params)
     @facility.end_user_id = current_end_user.id
     # FacilityモデルをDBへ保存
-    @facility.save
+    if @facility.save
     # showページへ画面遷移
-    redirect_to facility_path(@facility.id)
+      flash[:notice] = "記事を投稿しました。"
+      redirect_to facility_path(@facility.id)
+    else
+      flash.now[:alert] = "もう一度入力してください。"
+      render :new
+    end
   end
 
   # 登録編集
@@ -36,11 +44,11 @@ class FacilitiesController < ApplicationController
   def update
     @facility = Facility.find(params[:id])
     if @facility.update(facility_params)
-      flash[:notice] = "You have updated facility successfully."
+      flash[:notice] = "記事を更新しました。"
       redirect_to @facility
     else
-      flash.now[:alert] = "failed"
-      render :edit
+      flash[:notice] = "更新が失敗しました..."
+      redirect_to facility_path(@facility)
     end
   end
 

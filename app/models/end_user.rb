@@ -13,6 +13,14 @@ class EndUser < ApplicationRecord
   # 追記投稿についてのコメント機能とのアソシエーション
   has_many :post_script_comments, dependent: :destroy
 
+  validates :family_name, presence: true
+  validates :first_name, presence: true
+  validates :family_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :email, presence: true
+
+
+
   # ゲストログイン、以下を追加
   def self.guest
     find_or_create_by!(email: 'guest@example.com', ) do |end_user|
