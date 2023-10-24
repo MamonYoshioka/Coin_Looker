@@ -15,22 +15,6 @@ class Facility < ApplicationRecord
 
 
 
-
-  def create
-    @facility = Facility.find(params[facility_id])
-    @post_script = Script.new(script_params)
-
-    @post_script.end_user_id = current_end_user.id
-    @post_script.post_script_id = @post_script.id
-
-    @post_script.save
-  end
-
-  def destroy
-    #@facility = Facility.find(params[facility_id])
-    #Script.find_by(id: params[:id], post_script_id: params[:post_script_id]).destroy
-  end
-
   def self.search_for(content, method)
     if method == 'perfect'
       Facility.where(area_name: content)

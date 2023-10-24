@@ -39,7 +39,6 @@ class PostScriptsController < ApplicationController
 
   # 投稿削除
   def destroy
-    @facility= Facility.find(params[:facility_id])
     @post_script = PostScript.find(params[:id])
     @post_script.destroy
     redirect_to facilities_path

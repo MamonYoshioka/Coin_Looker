@@ -8,13 +8,12 @@ class Admin::PostScriptsController < ApplicationController
   end
 
   def destroy
-    @facility= Facility.find(params[:facility_id])
     @post_script = PostScript.find(params[:id])
     @post_script.destroy
     redirect_to admin_facilities_path
 
-    comment = PostScriptComment.find(params[:id])
-    comment.destroy
-    redirect_back(fallback_location: admin_facilities_path)
+    #comment = PostScriptComment.find(params[:id])
+    #comment.destroy
+    #redirect_back(fallback_location: admin_facilities_path)
   end
 end
