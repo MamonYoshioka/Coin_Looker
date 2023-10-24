@@ -24,9 +24,14 @@ class PostScriptsController < ApplicationController
     @post_script.end_user_id = current_end_user.id
     @post_script.facility_id = @facility.id
     # PostScriptモデルをDBへ保存
-    @post_script.save
-    # showページへ画面遷移
-    redirect_to facility_post_script_path(@facility.id, @post_script.id)
+    if @post_script.save
+      flash[:notice] = "追記投稿できました"
+      # showページへ画面遷移
+      redirect_to facility_post_script_path(@facility.id, @post_script.id)
+    else
+      flash.now[:alert] = "再度追記投稿の内容を入力してください。"
+      render :new
+    end
   end
 
   # 登録編集

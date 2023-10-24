@@ -31,7 +31,7 @@ class FacilitiesController < ApplicationController
       redirect_to facility_path(@facility.id)
     else
       flash.now[:alert] = "もう一度入力してください。"
-      redirect_to new_facility_path
+      render :new
     end
   end
 
