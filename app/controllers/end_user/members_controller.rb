@@ -16,8 +16,8 @@ before_action :authenticate_end_user!
       flash[:notice] = "会員情報変更しました。"
       redirect_to end_user_member_path
     else
-      flash[:notice] = "変更内容が正しくありません。"
-      redirect_to end_user_member_edit_path
+      flash.now[:alert] = "変更内容が正しくありません。"
+      render 'end_user/members/edit'
     end
   end
 

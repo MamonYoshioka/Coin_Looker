@@ -13,7 +13,7 @@
         <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
           情報を更新
         </button>
-        <%= link_to '情報を削除', facility_path, method: :delete, data: {confirm: '削除しますか？'},class:"btn btn-danger" %>
+        <%= link_to '情報を削除', facility_path(@facility), method: :delete, data: {confirm: '削除しますか？'},class:"btn btn-danger" %>
       <% else %>
       <% end %>
     </div>

@@ -9,6 +9,12 @@ class Facility < ApplicationRecord
   # ロッカー複数枚画像を投稿できるようにする
   has_many_attached :images
 
+  validates :loker_name, presence: true
+  validates :area_name, presence: true
+  validates :area_introduction, presence: true
+
+
+
 
   def create
     @facility = Facility.find(params[facility_id])
@@ -21,8 +27,8 @@ class Facility < ApplicationRecord
   end
 
   def destroy
-    @facility = Facility.find(params[facility_id])
-    Script.find_by(id: params[:id], post_script_id: params[:post_script_id]).destroy
+    #@facility = Facility.find(params[facility_id])
+    #Script.find_by(id: params[:id], post_script_id: params[:post_script_id]).destroy
   end
 
   def self.search_for(content, method)

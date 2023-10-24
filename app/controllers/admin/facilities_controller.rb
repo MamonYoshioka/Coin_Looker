@@ -13,6 +13,6 @@ before_action :authenticate_admin!
   def destroy
     @facility = Facility.find(params[:id])
     @facility.destroy
-    redirect_to facilities_path
+    redirect_to admin_facilities_path
   end
 end

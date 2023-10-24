@@ -1,4 +1,5 @@
 class PostScriptsController < ApplicationController
+  before_action :authenticate_end_user!, only: [:new, :index, :show, :create, :update, :destroy]
   def index
   end
 
