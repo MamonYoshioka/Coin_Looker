@@ -15,20 +15,24 @@
     </div>
   </div>
   <div class="row">
-    <% @facilities.each do |facility| %>
-      <div class="col-sm-12 mb-3">
-        <%= link_to admin_facility_path(facility) do %>
-          <div class="card mx-auto" style="max-width: 480px">
-            <div class="card-body">
-              <h5 class="card-title"><%= facility.loker_name %></h5>
-              <p class="card-text"><%= facility.area_introduction %></p>
+    <% if @facilities.present? %>
+      <% @facilities.each do |facility| %>
+        <div class="col-sm-12 mb-3">
+          <%= link_to admin_facility_path(facility) do %>
+            <div class="card mx-auto" style="max-width: 480px">
+              <div class="card-body">
+                <h5 class="card-title"><%= facility.loker_name %></h5>
+                <p class="card-text"><%= facility.area_introduction %></p>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="mx-auto">
+        <%= paginate @facilities %>
       </div>
+    <% else %>
+      <p>まだ投稿はありません</p>
     <% end %>
-    <div class="mx-auto">
-      <%= paginate @facilities %>
-    </div>
   </div>
 </div>
