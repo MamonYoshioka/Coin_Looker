@@ -24,14 +24,24 @@ class FacilitiesController < ApplicationController
     # Facilityモデルの初期化
     @facility = Facility.new(facility_params)
     @facility.end_user_id = current_end_user.id
-    # FacilityモデルをDBへ保存
-    if @facility.save
-    # showページへ画面遷移
-      flash[:notice] = "記事を投稿しました。"
-      redirect_to facility_path(@facility.id)
-    else
-      flash.now[:alert] = "もう一度入力してください。"
-      render :new
+    if facility_params[:images].present?
+      facility_params[:images].each do |image|
+        result = Vision.images_analysis(image)
+        if result == false
+          flash.now[:alert] = "画像が不適切です。最初から入力して下さい。"
+          render :new
+          return
+        end
+      end
+      # FacilityモデルをDBへ保存
+      if @facility.save
+        # showページへ画面遷移
+        flash[:notice] = "記事を投稿しました。"
+        redirect_to facility_path(@facility.id)
+      else
+        flash.now[:alert] = "もう一度入力してください。"
+        render :new
+      end
     end
   end
 
