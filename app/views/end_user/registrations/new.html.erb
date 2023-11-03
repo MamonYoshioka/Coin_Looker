@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-8 offset-2 mt-5">
+    <div class="col-12 offset-1 mt-5">
       <div>
         <h2>新規会員登録</h2>
       </div>
@@ -12,7 +12,7 @@
             <tbody>
               <tr>
                 <td>名前</td>
-                <td><%= f.label :（姓） %></td>
+                <td><%= f.label :（姓） %></td><br>
                 <td><%= f.text_field :family_name, placeholder: "横浜", autofocus: true %></td>
                 <td><%= f.label :（名） %><br></td>
                 <td><%= f.text_field :first_name, placeholder: "太郎", autofocus: true %></td>

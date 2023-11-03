@@ -10,6 +10,8 @@ module CoinLooker
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    # VisionAPI実装のためのコード追加
+    config.paths.add 'lib', eager_load: true
 
     # Configuration for the application, engines, and railties goes here.
     #

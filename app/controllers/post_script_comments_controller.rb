@@ -22,6 +22,6 @@ class PostScriptCommentsController < ApplicationController
 
   private
   def post_script_comment_params
-    params.require(:post_script_comment).permit(:comment, :post_script_id)
+    params.require(:post_script_comment).permit(:comment, :post_script_id, :nick_name)
   end
 end
