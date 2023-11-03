@@ -33,6 +33,7 @@ class FacilitiesController < ApplicationController
           return
         end
       end
+    end
       # FacilityモデルをDBへ保存
       if @facility.save
         # showページへ画面遷移
@@ -42,7 +43,6 @@ class FacilitiesController < ApplicationController
         flash.now[:alert] = "もう一度入力してください。"
         render :new
       end
-    end
   end
 
   # 登録編集
@@ -53,13 +53,22 @@ class FacilitiesController < ApplicationController
   # 登録内容更新
   def update
     @facility = Facility.find(params[:id])
-    if @facility.update(facility_params)
-      flash[:notice] = "記事を更新しました。"
-      redirect_to @facility
-    else
-      flash[:notice] = "更新が失敗しました..."
-      redirect_to facility_path(@facility)
-    end
+      if facility_params[:images].present?
+        facility_params[:images].each do |image|
+          result = Vision.images_analysis(image)
+          if result == false
+            flash[:notice] = "画像が不適切です。更新をやり直してください。"
+            redirect_to facility_path(@facility) and return
+          end
+        end
+      end
+      if @facility.update(facility_params)
+        flash[:notice] = "記事を更新しました。"
+        redirect_to @facility
+      else
+        flash[:notice] = "更新が失敗しました..."
+        redirect_to facility_path(@facility)
+      end
   end
 
   # 投稿削除
