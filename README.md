@@ -1,4 +1,4 @@
-# coin_looker
+# Coin_Looker
 ## サイト概要
 
 ### サイトテーマ
