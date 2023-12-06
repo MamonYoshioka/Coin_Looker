@@ -7,5 +7,8 @@ RSpec.describe EndUser, type: :model do
 
       expect(end_user.guest_login).to be_truthy
     end
+
+    it "test" do
+    end
   end
 end
