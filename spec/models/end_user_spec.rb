@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe EndUser, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "ゲストログイン" do
+    it "ゲストログインできる" do
+      end_user = create(:end_user)
+
+      expect(end_user.guest_login).to be_truthy
+    end
+  end
 end
